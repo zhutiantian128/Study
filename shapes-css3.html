@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #triangle-up {
+            width: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 100px solid red;
+        }
+
+        .typing {
+            /*15em宽度是因为正好15个中文，宽度是15em。*/
+            width: 15em;
+            white-space: nowrap;
+            border-right: 2px solid transparent;
+            animation: typing 3.5s steps(15, end), blink-caret .75s step-end infinite;
+            overflow: hidden;
+        }
+
+        /* 打印效果 */
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 15em;
+            }
+        }
+
+        /* 光标闪啊闪 */
+        @keyframes blink-caret {
+            from, to {
+                box-shadow: 1px 0 0 0 transparent;
+            }
+            50% {
+                box-shadow: 1px 0 0 0;
+            }
+        }
+
+        .aa {
+            width: 574px;
+            height: 0.8em;
+            background: red;
+            position: relative;
+        }
+
+        .aa::after {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 4em;
+            height: 100%;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+            /**/
+            pointer-events: none;
+            content: '';
+        }
+    </style>
+</head>
+<body>
+<div id="triangle-up"></div>
+<p class="typing">简易中文打字效果，作者：朱甜甜</p>
+<div class="aa">
+
+</div>
+</body>
+</html>

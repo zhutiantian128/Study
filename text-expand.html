@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <style type="text/css">
+        .container {
+            float: left;
+            width: 300px;
+            margin: 0 20px;
+        }
+
+        .toggle-btn {
+            margin-top: 10px;
+            border-top: 1px solid red;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="expandDiv">
+        一些文字一些文字一些文字一些文字一些文字一些文字一些文字一些文字一些文字一些文字一些文字一些文字一些文字一些文字一些文字一些文字一些文字一些文字一些文字一些文字一些文字一些文字一些文字
+    </div>
+</div>
+<div class="container">
+    <div class="expandDiv">
+        一些文字一些文字一些文字一些文字一些文字一些文字一些文字一些文字一些文字一些文字一些文字一些文字一些文字一些文字一些文字一些文字一些文字一些文字一些文字一些文字一些文字一些文字一些文字
+    </div>
+</div>
+<script type="text/javascript">
+    $.fn.expandable = function (config) {
+        var that = $(this);
+        var isExpand = false;
+        var btnStr = '展开';
+        var summaryCharLen = 100;
+
+        var content = that.text();
+        var summary = content.substr(0, summaryCharLen);
+
+        that.text(summary + '...');
+
+        var btn = $('<div>' + btnStr + '</div>').click(function (e) {
+            var target = $(this).prev();
+            if (isExpand) {
+                target.text(summary + '...');
+                $(this).text('展开');
+            } else {
+                target.text(content);
+                $(this).text('关闭');
+            }
+            isExpand = !isExpand;
+        }).insertAfter(that).addClass('toggle-btn');
+    };
+
+    $('.expandDiv').expandable();
+</script>
+</body>
+</html>

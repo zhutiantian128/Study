@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    function distinct(arr) {
+        var newArr = [];
+        for (var i = 0; i < arr.length; i++) {
+            if (newArr.indexOf(arr[i]) === -1) {
+                newArr.push(arr[i]);
+            }
+        }
+        return newArr;
+    };
+
+    function sortNumber(a, b) {//排序
+        return a - b;
+    }
+
+    var arr = [1, 2, 3, 6, 5, 6, 2, 1, 7];
+    alert(arr);
+    alert(distinct(arr));
+    alert(distinct(arr).sort(sortNumber));
+</script>
+
+</body>
+</html>

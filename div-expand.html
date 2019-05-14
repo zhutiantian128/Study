@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <style type="text/css">
+        .item {
+            position: relative;
+            width: 900px;
+            height: 100px;
+            overflow: hidden;
+            margin-bottom: 10px;
+            line-height: 25px;
+            background: #eee;
+        }
+
+        .item .more {
+            position: absolute;
+            right: 0px;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <div class="item">1<br/>2<br/>3<br/>4<br/>5
+        1<br/>2<br/>3<br/>4<br/>5
+        1<br/>2
+        1
+        <img src="images/earth.png">
+        <!--<div class="item">1<br/>2<br/>3</div>-->
+    </div>
+</div>
+<script>
+    if ($(".item")[0].scrollHeight > 100) { //大于高度，添加more
+        $(".item").append("<div class='more'>更多</div>");
+    }
+    $(".more").on("click", function () {
+        if ($(this).text() == "更多") {
+            $(this).parents(".item").css("height", "auto");
+            $(this).text("收起")
+        } else {
+            $(this).parents(".item").css("height", "100px")
+            $(this).text("更多")
+        }
+    })
+</script>
+</body>
+</html>

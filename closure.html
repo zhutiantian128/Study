@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <title>闭包演示</title>
+    <style type="text/css">
+        p {
+            background: gold;
+        }
+    </style>
+
+</head>
+<body onload="init();">
+<p>产品 0</p>
+<p>产品 1</p>
+<p>产品 2</p>
+<p>产品 3</p>
+<p>产品 4</p>
+<script type="text/javascript">
+    //
+    <!--点击时alert都是5。因为先执行循环，每次循环到最后i都是5，所以点击时都是5-->
+    // function init() {
+    //     var pAry = document.getElementsByTagName("p");
+    //     for (var i = 0; i < pAry.length; i++) {
+    //         pAry[i].onclick = function () {
+    //             alert(i);
+    //         }
+    //     }
+    // }
+
+    //
+    <!--方法一：将变量 i 保存在每个段落对象(p)上-->
+    // function init() {
+    //     var pAry = document.getElementsByTagName("p");
+    //     for (var i = 0; i < pAry.length; i++) {
+    //         pAry[i].i = i;
+    //         pAry[i].onclick = function () {
+    //             alert(this.i);
+    //         }
+    //     }
+    // }
+
+    //
+    <!--方法二：加一层闭包，i 以函数参数形式传递给内层函数  -->
+    function init() {
+        var pAry = document.getElementsByTagName("p");
+        for (var i = 0; i < pAry.length; i++) {
+            (function (arg) {
+                pAry[temp].onclick = function () {
+                    alert(arg);
+                }
+            })(i);//调用时参数
+        }
+    }
+
+    //
+    <!--方法三：加一层闭包，i 以局部变量形式传递给内层函数  -->
+    // function init() {
+    //     var pAry = document.getElementsByTagName("p");
+    //     for (var i = 0; i < pAry.length; i++) {
+    //         (function() {
+    //             var temp = i;//调用时局部变量
+    //             pAry[temp].onclick = function () {
+    //                 alert(temp);
+    //             }
+    //         })();//调用时参数
+    //     }
+    // }
+
+    //
+    <!--方法四：加一层闭包，返回一个函数作为响应事件(注意与方法二的细微区别)  -->
+    // function init() {
+    //     var pAry = document.getElementsByTagName("p");
+    //     for (var i = 0; i < pAry.length; i++) {
+    //         pAry[i].onclick = function (arg) {
+    //             return function () {//返回一个函数
+    //                 alert(arg);
+    //             }
+    //         }(i);//调用时参数
+    //     }
+    // }
+
+    //是在DOM加载完成后执行的回调函数，并且只会执行一次。
+    $(document).ready(function () {//$(function() {   简写
+        alert("ready!");
+    });
+
+</script>
+</body>
+</html>

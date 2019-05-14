@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .box {
+            width: 150px;
+            border: 2px dashed #fff;
+            background: linear-gradient(to bottom, #34538b, #cd0000);
+            background-origin: border-box;
+        }
+
+        .content {
+            height: 100px;
+            background-color: #fff;
+        }
+
+        .box2 {
+            width: 200px;
+            background: repeating-linear-gradient(135deg, transparent, transparent 3px, #000 3px, #000 8px);
+            animation: shine 1s infinite linear;
+            overflow: hidden;
+        }
+        .content2 {
+            height: 128px;
+            margin: 1px; padding: 10px;
+            background-color: #fff;
+        }
+        @keyframes shine {
+            0% { background-position: -1px -1px;}
+            100% { background-position: -12px -12px;}
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="content"></div>
+</div>
+
+<div class="box2">
+    <div class="content2">内容占位</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+<video id="video1" controls width="270" autoplay src="https://vodlist.5iketang.com:8449/c/v/playUri.m3u8?vid=VID-GBXOLDWS-RDQM-35A3BEB24518A0B21D19F0BA-1&vh=aHR0cHM6Ly9rZS41aWtldGFuZy5jb20vbWVkaWEvcGxheWVyLzIxMTk4MS8yMTUxNjAvYXV0aC9rZXk_bXRva2VuPWV5SjFjMlZ5U1dRaU9qWXlOamd6Tnl3aVgzUWlPakUxTlRFMk9UUXhORFFzSW5SdmEyVnVJam9pYm5ZNE1IWmlOamQxWXpCalp6QnZkM05uZHpSck1ITjNZMk5yYnpBMElpd2ljMmxuYmlJNklqQmpabU5rT1Rka1lqQmxPRE5pWTJRNU5ETmtNRFUzTnpVNU9EVXpOR0l4SW4wJl9zaGFyZUlkPTFJWVNENVg4OUM"></video>
+
+<canvas id="myCanvas" width="270" height="135"></canvas>
+</body>
+<script>
+    var v = document.getElementById("video1");
+    var c = document.getElementById("myCanvas");
+    ctx = c.getContext('2d');
+
+    v.addEventListener('play', function() {
+        var i = window.setInterval(function() {
+            ctx.drawImage(v, 0, 0, 270, 135)
+        }, 20);
+    }, false);
+</script>
+
+</html>

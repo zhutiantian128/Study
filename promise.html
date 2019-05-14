@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    function p1() {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                console.log(1);
+                resolve();
+            }, 3000)
+        });
+    }
+
+    function p2() {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                console.log(2);
+                resolve();
+            }, 2000)
+        });
+    }
+
+    function p3() {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                console.log(3);
+                resolve();
+            }, 5000)
+        });
+    }
+
+    p1().then(function () {
+        return p2();
+    }).then(function () {
+        return p3();
+    })
+
+</script>
+</body>
+</html>

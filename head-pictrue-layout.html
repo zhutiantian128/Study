@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        /*相邻兄弟选择符加号+以及兄弟选择符弯弯~*/
+        /* 3个li项目的第1个列表项的后一个，也就是第2项的样式 */
+        /*li:first-child:nth-last-child(3) + li {}*/
+        /* 3个li项目的第一个列表项后面两个列表项，也就是第2项和第3项的样式 */
+        /*li:first-child:nth-last-child(3) ~ li {}*/
+
+        /*first-child:nth-last-child(2)=>即是第1个，又是倒数第2个=>总共有两个子元素*/
+        /*利用选择器还可以继续拓展：*/
+        /*first-child:nth-last-child(n+2)=>即是第1个，又是第2,3,4,,,个=>子元素数目>2*/
+        /*first-child:nth-last-child(-n+4)=>即是第1个，又是倒数第1,2,3,4个=>子元素数目<=4*/
+        /*first-child:nth-last-child(-n+4):nth-last-child(n+2)=>即是第1个，又是第2,3,4,,,个，又是倒数第1,2,3,4个=>子元素数目[2,4]*/
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+            width: 240px;
+            height: 240px;
+            background-color: #eee;
+        }
+
+        li {
+            background: url(https://image.zhangxinxu.com/image/study/head/s180/14.jpeg);
+            background-size: 100%;
+            outline: 1px solid #fff;
+        }
+
+        /* 1个 */
+        li:only-child {
+            height: 100%;
+        }
+
+        /* 2个 (即是第1个，又是倒数第2个=>总共有两个子元素) */
+
+        li:first-child:nth-last-child(2),
+        li:first-child:nth-last-child(2) + li {
+            width: 50%;
+            height: 50%;
+        }
+        /*+++++2个li项目的第1个列表项的后一个，也就是第2项的样式 */
+        li:first-child:nth-last-child(2) + li {
+            margin-left: auto;
+        }
+
+        /* 3个 */
+        li:first-child:nth-last-child(3),
+        li:first-child:nth-last-child(3) ~ li {
+            width: 50%;
+            height: 50%;
+        }
+
+        li:first-child:nth-last-child(3) {
+            margin: auto;
+        }
+        /* ~~~~~~~~3个li项目的第一个列表项后面两个列表项，也就是第2项和第3项的样式 */
+        li:first-child:nth-last-child(3) ~ li {
+            float: left;
+        }
+
+        /* 4个 */
+        li:first-child:nth-last-child(4),
+        li:first-child:nth-last-child(4) ~ li {
+            width: 50%;
+            height: 50%;
+            float: left;
+        }
+
+        /* 5个和6个 */
+        li:first-child:nth-last-child(5),
+        li:first-child:nth-last-child(6) {
+            width: 160px;
+            height: 160px;
+            float: left;
+        }
+
+        li:first-child:nth-last-child(5) ~ li,
+        li:first-child:nth-last-child(6) ~ li {
+            width: 80px;
+            height: 80px;
+            float: left;
+        }
+
+        /* 7个 8个 9个 */
+        li:first-child:nth-last-child(7),
+        li:first-child:nth-last-child(8),
+        li:first-child:nth-last-child(9),
+        li:first-child:nth-last-child(7) ~ li,
+        li:first-child:nth-last-child(8) ~ li,
+        li:first-child:nth-last-child(9) ~ li {
+            width: 80px;
+            height: 80px;
+            float: left;
+        }
+
+        li:first-child:nth-last-child(7) {
+            float: none;
+            margin: auto;
+        }
+
+        li:first-child:nth-last-child(8) {
+            margin-left: 40px;
+        }
+    </style>
+
+
+</head>
+<body>
+<h4>1个头像</h4>
+<ul>
+    <li></li>
+</ul>
+<h4>2个头像</h4>
+<ul>
+    <li></li>
+    <li></li>
+</ul>
+<h4>3个头像</h4>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<h4>4个头像</h4>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<h4>5个头像</h4>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<h4>6个头像</h4>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<h4>7个头像</h4>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<h4>8个头像</h4>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<h4>9个头像</h4>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>
