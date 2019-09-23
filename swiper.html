@@ -190,10 +190,10 @@
         arr.style.display = "block";
         clearInterval(timeId);
     };
-    // box.onmouseover = function () {
-    //     arr.style.display = "none";
-    //     timeId = setInterval(onmouseclickHandle, 3000);
-    // };
+    box.onmouseout = function () {
+        arr.style.display = "none";
+        timeId = setInterval(onmouseclickHandle, 3000);
+    };
 
     right.onclick = onmouseclickHandle;
 
